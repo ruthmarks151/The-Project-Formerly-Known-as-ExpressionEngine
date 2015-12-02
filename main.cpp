@@ -13,6 +13,8 @@ void splitExpression(string expression){
     int firstLowPresedenceOperator = NO_OP_FOUND;
     int firstHighPresedenceOperator = NO_OP_FOUND;
     char cbefore = expression[0];
+    if (cbefore == '(')
+        parenDepth++;
     for (int i = 1; i < expression.length() &&  (firstLowPresedenceOperator == NO_OP_FOUND); i++) {
         char c = expression[i];
         switch (c) {
