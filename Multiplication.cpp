@@ -1,31 +1,27 @@
-//
-// Created by ryan on 02/12/15.
-//
-
 #include "Multiplication.h"
 #include <string>
 #include <iostream>
 
 
-Multiplication::Multiplication(){
-    left = nullptr;
-    right = nullptr;
+Multiplication::Multiplication(){ //default constructor, should not be used
+    left = nullptr;  //makes the left a null pointer
+    right = nullptr; //makes the right a null pointer
 };
 
-Multiplication::Multiplication(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft, givenRight) {
+Multiplication::Multiplication(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft, givenRight) {  // Multiplication taking in parameters
 
 }
 
 std::string Multiplication::evaluate() {
-    return std::to_string(std::stof(left->evaluate().c_str()) * std::stof(right->evaluate().c_str()));
+    return std::to_string(std::stof(left->evaluate().c_str()) * std::stof(right->evaluate().c_str())); // takes in values and performs multiplication. The result is converted from a double to a string
 }
 
 
-float Multiplication::convert(std::string s) {
+float Multiplication::convert(std::string s) { //converts string to a float
     return 0;
 }
 
 void Multiplication::print() {
-    std::cout << "This is an arithmetic expression! (Multiplication!)" << std::endl;
+    std::cout << "This is an arithmetic expression! (Multiplication!)" << std::endl;  //Used in testing
 }
 
