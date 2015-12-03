@@ -8,7 +8,7 @@ bool isOp(char c){
     return c == '+' || c == '-' || c == '*' || c == '/';
 }
 
-void splitExpression(string expression){
+string splitExpression(string expression) throw(exception){
     int parenDepth = 0;
     int firstLowPresedenceOperator = NO_OP_FOUND;
     int firstHighPresedenceOperator = NO_OP_FOUND;
@@ -43,6 +43,8 @@ void splitExpression(string expression){
         }
         cbefore = c;
     }
+
+    if (parenDepth != 0)
         int splitPoint = firstLowPresedenceOperator;
         if (firstLowPresedenceOperator == NO_OP_FOUND)
             splitPoint = firstHighPresedenceOperator;
