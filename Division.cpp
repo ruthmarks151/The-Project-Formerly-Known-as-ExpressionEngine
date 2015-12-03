@@ -6,6 +6,11 @@ Division::Division(){
     right = nullptr;
 };
 
+
+Division::Division(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft,givenRight) {
+
+}
+
 std::string Division::evaluate() {
     return "Division Evaluated!";
 }

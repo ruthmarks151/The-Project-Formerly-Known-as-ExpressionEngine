@@ -12,6 +12,9 @@ Multiplication::Multiplication(){
     right = nullptr;
 };
 
+Multiplication::Multiplication(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft, givenRight) {
+
+}
 
 std::string Multiplication::evaluate() {
     return "Multiplication evaluated!";
@@ -26,6 +29,3 @@ void Multiplication::print() {
     std::cout << "This is an arithmetic expression! (Multiplication!)" << std::endl;
 }
 
-Multiplication::Multiplication(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft, givenRight) {
-
-}

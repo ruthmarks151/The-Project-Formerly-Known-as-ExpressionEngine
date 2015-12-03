@@ -6,8 +6,13 @@ Addition::Addition(){
     right = nullptr;
 };
 
+
+Addition::Addition(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft,givenRight) {
+
+}
+
 std::string Addition::evaluate(){
-    return "Addition Evaluated!";
+    return std::to_string(std::stof(left->evaluate().c_str()) + std::stof(right->evaluate().c_str()));
 }
 
 float Addition::convert(std::string s){

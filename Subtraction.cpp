@@ -8,6 +8,11 @@ Subtraction::Subtraction(){
     right = nullptr;
 };
 
+
+Subtraction::Subtraction(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft,givenRight){
+
+}
+
 std::string Subtraction::evaluate(){
     return "Subtraction Evaluated!";
 }
