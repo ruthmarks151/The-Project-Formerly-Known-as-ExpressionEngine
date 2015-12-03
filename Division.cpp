@@ -12,7 +12,7 @@ Division::Division(Expression *givenLeft, Expression *givenRight) : ArithmeticEx
 }
 
 std::string Division::evaluate() {
-    return "Division Evaluated!";
+    return std::to_string(std::stof(left->evaluate().c_str()) / std::stof(right->evaluate().c_str()));
 }
 
 float Division::convert(std::string s) {

@@ -17,7 +17,7 @@ Multiplication::Multiplication(Expression *givenLeft, Expression *givenRight) : 
 }
 
 std::string Multiplication::evaluate() {
-    return "Multiplication evaluated!";
+    return std::to_string(std::stof(left->evaluate().c_str()) * std::stof(right->evaluate().c_str()));
 }
 
 
