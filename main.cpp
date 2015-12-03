@@ -45,6 +45,7 @@ string splitExpression(string expression) throw(exception){
     }
 
     if (parenDepth != 0)
+    	throw exception();
         int splitPoint = firstLowPresedenceOperator;
         if (firstLowPresedenceOperator == NO_OP_FOUND)
             splitPoint = firstHighPresedenceOperator;
