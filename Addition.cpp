@@ -1,5 +1,6 @@
 #include "Addition.h"
 #include <iostream>
+#include <string>
 
 Addition::Addition(){
     left = nullptr;

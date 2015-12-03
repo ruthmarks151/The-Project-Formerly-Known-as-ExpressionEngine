@@ -1,5 +1,6 @@
 #include "Division.h"
 #include <iostream>
+#include <string>
 
 Division::Division(){
     left = nullptr;
