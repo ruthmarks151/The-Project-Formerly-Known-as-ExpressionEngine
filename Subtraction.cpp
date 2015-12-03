@@ -14,7 +14,7 @@ Subtraction::Subtraction(Expression *givenLeft, Expression *givenRight) : Arithm
 }
 
 std::string Subtraction::evaluate(){
-    return "Subtraction Evaluated!";
+    return std::to_string(std::stof(left->evaluate().c_str()) + std::stof(right->evaluate().c_str()));
 }
 
 float Subtraction::convert(std::string s){
