@@ -1,7 +1,6 @@
 #include "Addition.h"
-#include <string>
+#include "ArithmeticExpression.h"
 #include <iostream>
-
 
 Subtraction::Subtraction(){
 	left = nullptr;
@@ -11,7 +10,6 @@ Subtraction::Subtraction(){
 std::string Subtraction::evaluate() {
     return "Subtraction evaluated!";
 }
-
 
 float Subtraction::convert(std::string s) {
     return 0;
