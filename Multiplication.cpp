@@ -23,7 +23,7 @@ float Multiplication::convert(std::string s) {
 }
 
 void Multiplication::print() {
-    std::cout << "This is an arithmetic expression!" << std::endl;
+    std::cout << "This is an arithmetic expression! (Multiplication!)" << std::endl;
 }
 
 Multiplication::Multiplication(Expression *givenLeft, Expression *givenRight) : ArithmeticExpression(givenLeft, givenRight) {
