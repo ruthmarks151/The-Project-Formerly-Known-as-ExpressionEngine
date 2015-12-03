@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "ArithmeticExpression.h"
+#include "MultiplicationExpression.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
@@ -61,6 +61,10 @@ string splitExpression(string expression) throw(exception){
 
 int main() {
     string expression;
+    MultiplicationExpression* m = new MultiplicationExpression();
+    m->print();
+
+
     cout << "Hello, World!" << endl;
     while (true) {
         getline(cin, expression);
