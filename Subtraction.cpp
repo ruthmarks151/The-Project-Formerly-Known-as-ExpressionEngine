@@ -1,7 +1,5 @@
 #include "Subtraction.h"
-#include <string>
 #include <iostream>
-
 
 Subtraction::Subtraction(){
     left = nullptr;
@@ -14,7 +12,7 @@ Subtraction::Subtraction(Expression *givenLeft, Expression *givenRight) : Arithm
 }
 
 std::string Subtraction::evaluate(){
-    return std::to_string(std::stof(left->evaluate().c_str()) + std::stof(right->evaluate().c_str()));
+    return std::to_string(std::stof(left->evaluate().c_str()) - std::stof(right->evaluate().c_str()));
 }
 
 float Subtraction::convert(std::string s){
