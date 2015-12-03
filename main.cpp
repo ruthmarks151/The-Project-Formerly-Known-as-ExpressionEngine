@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include "ArithmeticExpression.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
