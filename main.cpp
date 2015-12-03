@@ -4,6 +4,7 @@
 #include "Multiplication.h"
 #include "Addition.h"
 #include "Subtraction.h"
+#include "Division.h"
 #include "LiteralExpression.h"
 #define NO_OP_FOUND -1
 using namespace std;
@@ -67,11 +68,14 @@ int main() {
     Multiplication * m = new Multiplication();
     Addition * n = new Addition();
     Subtraction * x = new Subtraction();
+    Division * p = new Division();
+
     LiteralExpression * l = new LiteralExpression(3.14);
     m->print();
     n->print();
     l->print();
     x->print();
+    p->print();
     
     while (true) {
         getline(cin, expression);

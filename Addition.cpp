@@ -1,5 +1,4 @@
 #include "Addition.h"
-#include "ArithmeticExpression.h"
 #include <iostream>
 
 Addition::Addition(){
