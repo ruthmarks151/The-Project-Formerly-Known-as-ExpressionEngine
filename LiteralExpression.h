@@ -11,7 +11,7 @@ class LiteralExpression : public Expression{
 private:
     float value;
 public:
-    LiteralExpression(float givenValue)
+    LiteralExpression(float givenValue);
     virtual std::string evaluate();
     virtual void print();
 };

@@ -3,6 +3,7 @@
 #include <vector>
 #include "Multiplication.h"
 #include "Addition.h"
+#include "LiteralExpression.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
@@ -64,11 +65,11 @@ int main() {
     string expression;
     Multiplication * m = new Multiplication();
     Addition * n = new Addition();
+    LiteralExpression * l = new LiteralExpression(3.14);
     m->print();
     n->print();
-
-
-    cout << "Hello, World!" << endl;
+    l->print();
+    
     while (true) {
         getline(cin, expression);
         splitExpression(expression);
