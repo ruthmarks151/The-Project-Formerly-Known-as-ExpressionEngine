@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "Multiplication.h"
+#include "Addition.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
@@ -62,7 +63,9 @@ string splitExpression(string expression) throw(exception){
 int main() {
     string expression;
     Multiplication * m = new Multiplication();
+    Addition * n = new Addition();
     m->print();
+    n->print();
 
 
     cout << "Hello, World!" << endl;
