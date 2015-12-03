@@ -13,7 +13,17 @@ bool isOp(char c){
     return c == '+' || c == '-' || c == '*' || c == '/';
 }
 
-string splitExpression(string expression) throw(exception){
+string removeCharsFromString( string str, char charToRemove ) {
+    string out = "";
+    for (int i = 0; i < str.length(); i++){
+        if (str[i] != charToRemove)
+            out = out + str[i];
+    }
+    return out;
+
+}
+
+Expression* toExpression(string expression) throw(exception){
     int parenDepth = 0;
     int firstLowPresedenceOperator = NO_OP_FOUND;
     int firstHighPresedenceOperator = NO_OP_FOUND;
@@ -50,36 +60,45 @@ string splitExpression(string expression) throw(exception){
     }
 
     if (parenDepth != 0)
-    	throw exception();
-        int splitPoint = firstLowPresedenceOperator;
-        if (firstLowPresedenceOperator == NO_OP_FOUND)
-            splitPoint = firstHighPresedenceOperator;
+        throw exception();
 
-        string left = expression.substr(0,splitPoint);
-        string right = expression.substr(splitPoint+1,expression.length());
-        char op = expression[splitPoint];
-
-        cout << '"' << left << '"' << op << '"' << right << '"' << endl;
-
+    int splitPoint = firstLowPresedenceOperator;
+    if (firstLowPresedenceOperator == NO_OP_FOUND)
+        splitPoint = firstHighPresedenceOperator;
+    if (splitPoint == NO_OP_FOUND) {
+        expression = removeCharsFromString(expression,')');
+        expression = removeCharsFromString(expression,'(');
+        double num = stof(expression);
+        return new LiteralExpression(num);
+    }
+    string leftStr = expression.substr(0,splitPoint);
+    string rightStr = expression.substr(splitPoint+1,expression.length());
+    Expression * leftExp = toExpression(leftStr);
+    Expression * rightExp = toExpression(rightStr) ;
+    char op = expression[splitPoint];
+    switch(op){
+        case '+':
+            return new Addition(leftExp,rightExp);
+        case '-':
+            return new Subtraction(leftExp, rightExp);
+        case '*':
+            return new Multiplication(leftExp,rightExp);
+        case '/':
+            return new Division(leftExp,rightExp);
+        default:
+            throw exception();
+    }
 }
 
 int main() {
     string expression;
-    Multiplication * m = new Multiplication();
-    Addition * n = new Addition();
-    Subtraction * x = new Subtraction();
-    Division * p = new Division();
+    Expression * currentExp;
 
-    LiteralExpression * l = new LiteralExpression(3.14);
-    m->print();
-    n->print();
-    l->print();
-    x->print();
-    p->print();
-    
     while (true) {
         getline(cin, expression);
-        splitExpression(expression);
+        expression = removeCharsFromString(expression,' ');
+        currentExp = toExpression(expression);
+        cout << currentExp->evaluate() << endl;
     }
     return 0;
 }
