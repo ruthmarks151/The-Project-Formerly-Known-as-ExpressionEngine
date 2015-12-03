@@ -2,26 +2,26 @@
 // Created by ryan on 02/12/15.
 //
 
-#include "MultiplicationExpression.h"
+#include "Multiplication.h"
 #include <string>
 #include <iostream>
 
 
-MultiplicationExpression::MultiplicationExpression(){
+Multiplication::Multiplication(){
     left = nullptr;
     right = nullptr;
 };
 
 
-std::string MultiplicationExpression::evaluate() {
+std::string Multiplication::evaluate() {
     return "Multiplication evaluated!";
 }
 
 
-float MultiplicationExpression::convert(std::string s) {
+float Multiplication::convert(std::string s) {
     return 0;
 }
 
-void MultiplicationExpression::print() {
+void Multiplication::print() {
     std::cout << "This is an arithmetic expression!" << std::endl;
 }

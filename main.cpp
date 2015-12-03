@@ -1,7 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include "MultiplicationExpression.h"
+#include "Multiplication.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
@@ -61,7 +61,7 @@ string splitExpression(string expression) throw(exception){
 
 int main() {
     string expression;
-    MultiplicationExpression* m = new MultiplicationExpression();
+    Multiplication * m = new Multiplication();
     m->print();
 
 

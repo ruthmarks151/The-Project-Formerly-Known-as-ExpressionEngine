@@ -7,9 +7,9 @@
 
 #include "ArithmeticExpression.h"
 
-class MultiplicationExpression : public ArithmeticExpression{
+class Multiplication : public ArithmeticExpression{
 public:
-    MultiplicationExpression();
+    Multiplication();
     virtual std::string evaluate ();
     virtual float convert (std::string s);
     virtual void print();
