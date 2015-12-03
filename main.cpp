@@ -3,6 +3,7 @@
 #include <vector>
 #include "Multiplication.h"
 #include "Addition.h"
+#include "Subtraction.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
@@ -64,8 +65,10 @@ int main() {
     string expression;
     Multiplication * m = new Multiplication();
     Addition * n = new Addition();
+    Subtraction * x = new Subtraction();
     m->print();
     n->print();
+    x->print();
 
 
     cout << "Hello, World!" << endl;
