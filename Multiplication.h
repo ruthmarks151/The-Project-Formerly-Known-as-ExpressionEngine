@@ -10,6 +10,7 @@
 class Multiplication : public ArithmeticExpression{
 public:
     Multiplication();
+    Multiplication(Expression *givenLeft, Expression *givenRight);
     virtual std::string evaluate ();
     virtual float convert (std::string s);
     virtual void print();
