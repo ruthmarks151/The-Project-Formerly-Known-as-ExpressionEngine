@@ -3,5 +3,5 @@ project(ExpressionEngine)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++0x -fpermissive")
 
-set(SOURCE_FILES main.cpp)
+set(SOURCE_FILES main.cpp Expression.cpp Expression.h)
 add_executable(ExpressionEngine ${SOURCE_FILES})
