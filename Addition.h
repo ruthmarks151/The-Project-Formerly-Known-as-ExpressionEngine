@@ -5,6 +5,7 @@
 class Addition: public ArithmeticExpression{
 public:
     Addition();
+    Addition(Expression *givenLeft, Expression *givenRight);
     virtual std::string evaluate();
     virtual float convert (std::string s);
     virtual void print();
