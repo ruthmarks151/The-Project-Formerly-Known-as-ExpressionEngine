@@ -28,8 +28,15 @@ Expression* toExpression(string expression) throw(exception){
     int firstLowPresedenceOperator = NO_OP_FOUND;
     int firstHighPresedenceOperator = NO_OP_FOUND;
     char cbefore = expression[0];
-    if (cbefore == '(')
-        parenDepth++;
+    if (cbefore == '(') {
+        if (expression[expression.length()] == ')') {
+            expression = expression.substr(1, expression.length() - 1);
+            return toExpression(expression);
+        }
+        else
+            parenDepth++;
+
+    }
     for (int i = 1; i < expression.length() &&  (firstLowPresedenceOperator == NO_OP_FOUND); i++) {
         char c = expression[i];
         switch (c) {
