@@ -7,6 +7,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <stdexcept>
 #include "Multiplication.h"
 #include "Addition.h"
 #include "Subtraction.h"
@@ -35,15 +36,9 @@ Expression* toExpression(string expression) throw(exception){
     int firstHighPresedenceOperator = NO_OP_FOUND;
     char cbefore = expression[0];
     if (cbefore == '(') {
-        if (expression[expression.length()] == ')') {
-            expression = expression.substr(1, expression.length() - 1);
-            return toExpression(expression);
-        }
-        else
             parenDepth++;
-
     }
-    for (int i = 1; i < expression.length() &&  (firstLowPresedenceOperator == NO_OP_FOUND); i++) {
+    for (int i = 1; i < expression.length(); i++) {
         char c = expression[i];
         switch (c) {
             case '(':
@@ -69,20 +64,24 @@ Expression* toExpression(string expression) throw(exception){
                 }
                 break;
         }
+        //if (parenDepth<0)
+            //throw exception();
         cbefore = c;
     }
 
-    if (parenDepth != 0)
-        throw exception();
-
+    //if (parenDepth != 0)
+        //throw exception();
     int splitPoint = firstLowPresedenceOperator;
     if (firstLowPresedenceOperator == NO_OP_FOUND)
         splitPoint = firstHighPresedenceOperator;
     if (splitPoint == NO_OP_FOUND) {
-        expression = removeCharsFromString(expression,')');
-        expression = removeCharsFromString(expression,'(');
-        double num = stof(expression);
-        return new LiteralExpression(num);
+        try {
+            double num = stof(expression);
+            return new LiteralExpression(num);
+        }catch (const exception& ia) {
+            expression = expression.substr(1,expression.length()-2);
+            return toExpression(expression);
+        }
     }
     string leftStr = expression.substr(0,splitPoint);
     string rightStr = expression.substr(splitPoint+1,expression.length());
