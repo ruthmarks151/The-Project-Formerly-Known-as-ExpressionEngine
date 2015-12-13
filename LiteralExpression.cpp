@@ -1,7 +1,9 @@
-//
-// Created by ryan on 02/12/15.
-//
-
+/*
+ * Names: Ryan Marks, Nishanth Balamohan, Sophia Lu
+ * MAC ID: MARKSR2, BALAMON, LUY27
+ * Student Number: 001406077, 001411319, 001428072
+ * Description: The literal expression class that evaluates literals
+ */
 #include <iostream>
 #include "LiteralExpression.h"
 

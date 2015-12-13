@@ -1,3 +1,9 @@
+/*
+ * Names: Ryan Marks, Nishanth Balamohan, Sophia Lu
+ * MAC ID: MARKSR2, BALAMON, LUY27
+ * Student Number: 001406077, 001411319, 001428072
+ * Description: Contains the main function of the program
+ */
 #include <iostream>
 #include <string>
 #include <vector>
