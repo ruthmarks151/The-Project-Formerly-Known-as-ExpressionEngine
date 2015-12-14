@@ -33,3 +33,8 @@ void Division::print(){
 Expression *Division::clone() {
     return new Division(left->clone(),right->clone());
 }
+
+std::string Division::to_string() {
+    return "( "+ left->to_string() + " / " + right->to_string() + " )";
+
+}

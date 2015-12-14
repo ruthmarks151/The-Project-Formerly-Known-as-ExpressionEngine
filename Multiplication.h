@@ -15,6 +15,8 @@ public:
     virtual Expression *clone();
     virtual float convert (std::string s);
     virtual void print();
+
+    virtual std::string to_string();
 };
 
 

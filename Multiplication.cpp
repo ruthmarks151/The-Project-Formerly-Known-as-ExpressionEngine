@@ -31,6 +31,11 @@ void Multiplication::print() {
     std::cout << "This is an arithmetic expression! (Multiplication!)" << std::endl;  //Used in testing
 }
 
+std::string Multiplication::to_string() {
+    return "( "+ left->to_string() + " * " + right->to_string() + " )";
+
+}
+
 Expression *Multiplication::clone() {
     return new Multiplication(left->clone(),right->clone());
 

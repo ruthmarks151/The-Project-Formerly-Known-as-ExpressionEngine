@@ -32,3 +32,8 @@ void Subtraction::print(){
 Expression *Subtraction::clone() {
     return new Subtraction(left->clone(),right->clone());
 }
+
+
+std::string Subtraction::to_string() {
+    return "( "+ left->to_string() + " - " + right->to_string() + " )";
+}

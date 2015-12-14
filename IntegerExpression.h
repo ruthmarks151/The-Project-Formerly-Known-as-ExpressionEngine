@@ -7,17 +7,19 @@
 
 #include "Expression.h"
 
-class LiteralExpression : public Expression{
+class IntegerExpression : public Expression{
 private:
-    float value;
+    int value;
 public:
-    LiteralExpression(float givenValue);
+    IntegerExpression(int givenValue);
     virtual std::string evaluate();
     virtual void print();
 
     virtual void increment();
 
     virtual Expression *clone();
+
+    virtual std::string to_string();
 };
 
 

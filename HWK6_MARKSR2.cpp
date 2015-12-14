@@ -8,11 +8,12 @@
 #include <string>
 #include <vector>
 #include <stdexcept>
+#include <iomanip>
 #include "Multiplication.h"
 #include "Addition.h"
 #include "Subtraction.h"
 #include "Division.h"
-#include "LiteralExpression.h"
+#include "IntegerExpression.h"
 #define NO_OP_FOUND -1
 using namespace std;
 
@@ -76,8 +77,8 @@ Expression* toExpression(string expression) throw(exception){
         splitPoint = firstHighPresedenceOperator;
     if (splitPoint == NO_OP_FOUND) {
         try {
-            double num = stof(expression);
-            return new LiteralExpression(num);
+            double num = stoi(expression);
+            return new IntegerExpression(num);
         }catch (const exception& ia) {
             expression = expression.substr(1,expression.length()-2);
             return toExpression(expression);
@@ -102,22 +103,31 @@ Expression* toExpression(string expression) throw(exception){
     }
 }
 
+
 int main() {
     string expression;
     Expression * currentExp;
 
     while (true) {
+        cout << "Please enter an expression: ";
         getline(cin, expression);
-        if (expression == "@") {
+        if (expression == "#"){
+            break;
+        }else if (expression == "@") {
             Expression * tempExp = currentExp->clone();
             delete currentExp;
             currentExp = tempExp;
             currentExp->increment();
+            cout << currentExp->to_string() << " = " << setprecision(2) << stof(currentExp->evaluate()) << endl;
         }else {
             expression = removeCharsFromString(expression, ' ');
-            currentExp = toExpression(expression);
+            try {
+                currentExp = toExpression(expression);
+                cout << currentExp->to_string() << " = " << setprecision(2) << stof(currentExp->evaluate()) << endl;
+            }catch (const exception& e){
+                cout << "Expression is not well formed" << endl;
+            }
         }
-        cout << currentExp->evaluate() << endl;
     }
     return 0;
 }

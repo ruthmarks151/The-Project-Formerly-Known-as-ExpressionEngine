@@ -33,3 +33,7 @@ void Addition::print(){
 Expression * Addition::clone() {
     return new Addition(left->clone(),right->clone());
 }
+
+std::string Addition::to_string() {
+    return "( "+ left->to_string() + " + " + right->to_string() + " )";
+}
