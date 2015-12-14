@@ -10,6 +10,11 @@ protected:
 public:
     ArithmeticExpression();
     ArithmeticExpression(Expression* givenLeft, Expression* givenRight);
+    ~ArithmeticExpression();
+
+    virtual void increment();
+
+    virtual Expression * clone() = 0;
     virtual std::string evaluate () = 0;
     virtual float convert (std::string s) = 0;
     virtual void print() = 0;

@@ -18,3 +18,11 @@ std::string LiteralExpression::evaluate() {
 void LiteralExpression::print() {
     std::cout << this->evaluate();
 }
+
+Expression *LiteralExpression::clone() {
+    return new LiteralExpression(value);
+}
+
+void LiteralExpression::increment() {
+    value++;
+}

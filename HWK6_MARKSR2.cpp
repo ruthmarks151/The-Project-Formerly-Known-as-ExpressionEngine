@@ -108,8 +108,15 @@ int main() {
 
     while (true) {
         getline(cin, expression);
-        expression = removeCharsFromString(expression,' ');
-        currentExp = toExpression(expression);
+        if (expression == "@") {
+            Expression * tempExp = currentExp->clone();
+            delete currentExp;
+            currentExp = tempExp;
+            currentExp->increment();
+        }else {
+            expression = removeCharsFromString(expression, ' ');
+            currentExp = toExpression(expression);
+        }
         cout << currentExp->evaluate() << endl;
     }
     return 0;

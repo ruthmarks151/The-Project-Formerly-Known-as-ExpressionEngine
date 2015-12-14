@@ -28,3 +28,7 @@ float Subtraction::convert(std::string s){ //converts string into a float
 void Subtraction::print(){
     std::cout << "This is an arithmetic expression(subtraction)!" << std::endl; //used in testing
 }
+
+Expression *Subtraction::clone() {
+    return new Subtraction(left->clone(),right->clone());
+}

@@ -14,6 +14,10 @@ public:
     LiteralExpression(float givenValue);
     virtual std::string evaluate();
     virtual void print();
+
+    virtual void increment();
+
+    virtual Expression *clone();
 };
 
 

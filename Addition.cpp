@@ -29,3 +29,7 @@ float Addition::convert(std::string s){//Converts the string into a float
 void Addition::print(){
     std::cout << "This is an arithmetic expression(addition)!" << std::endl;//Used in testing
 }
+
+Expression * Addition::clone() {
+    return new Addition(left->clone(),right->clone());
+}

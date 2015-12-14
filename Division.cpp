@@ -29,3 +29,7 @@ float Division::convert(std::string s) {//Converts from a string to a float
 void Division::print(){
     std::cout<<"This is an Arithmetic Expression(division)" << std::endl;//Used in testing
 }
+
+Expression *Division::clone() {
+    return new Division(left->clone(),right->clone());
+}

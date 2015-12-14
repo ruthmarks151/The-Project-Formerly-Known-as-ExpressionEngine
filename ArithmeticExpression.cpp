@@ -14,3 +14,14 @@ ArithmeticExpression::ArithmeticExpression(Expression *givenLeft, Expression *gi
     left = givenLeft;
     right = givenRight;
 }
+
+
+ArithmeticExpression::~ArithmeticExpression(){
+    delete left;
+    delete right;
+}
+
+void ArithmeticExpression::increment() {
+    left->increment();
+    right->increment();
+}

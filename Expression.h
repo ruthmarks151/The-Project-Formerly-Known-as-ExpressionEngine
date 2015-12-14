@@ -5,8 +5,11 @@
 
 class Expression{
 public:
+    virtual Expression * clone() = 0;
     virtual std::string evaluate() = 0;
     virtual void print() = 0;
+    virtual void increment() = 0;
+    virtual ~Expression(){};
 };
 
 
